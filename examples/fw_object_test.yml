@@ -1,0 +1,24 @@
+- name: Add some objects to the firewall
+  hosts: testfw
+  connection: local
+  gather_facts: False
+
+  roles:
+#    - role: PaloAltoNetworks.paloaltonetworks
+
+  tasks:
+  - name: Grab the credentials from ansible-vault
+    include_vars: 'firewall-secrets.yml'
+    no_log: 'yes'
+
+  - name: Add an address object to the firewall
+    include_vars: 'addobject.yml'
+    panos_object:
+      ip_address: '{{ ip_address }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      addressobject: '{{ addressname }}'
+      address: '{{ address }}'
+      address_type: 'ip-netmask'
+      description: '{{ description }}'
+      operation: 'add'
