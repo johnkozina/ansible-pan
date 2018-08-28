@@ -17,7 +17,7 @@
       username: '{{ username }}'
       password: '{{ password }}'
       addressobject: 'AD-Server1'
-      address: '10.52.247.33'
+      address: '10.52.247.33/32'
       address_type: 'ip-netmask'
       tag_name: 'corpaa_ad_server'
       description: 'Application A App server 1'
