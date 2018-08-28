@@ -1,4 +1,4 @@
-- name: Add some objects to the firewall
+- name: Add a new objects to the firewall
   hosts: testfw
   connection: local
   gather_facts: False
