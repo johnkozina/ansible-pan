@@ -9,10 +9,10 @@
   tasks:
   - name: Grab the credentials from ansible-vault
     include_vars: 'firewall-secrets.yml'
+    include_vars: 'addobject.yml'
     no_log: 'yes'
 
   - name: Add an address object to the firewall
-    include_vars: 'addobject.yml'
     panos_object:
       ip_address: '{{ ip_address }}'
       username: '{{ username }}'
